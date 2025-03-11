@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Cucumber</title>
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<style>
+.cucumber-react .cucumber-status--passed {
+  color: #2CB14A;
+}
+.cucumber-react .cucumber-status--skipped {
+  color: #00A0CC;
+}
+.cucumber-react .cucumber-status--pending {
+  color: #FFAD33;
+}
+.cucumber-react .cucumber-status--undefined {
+  color: #FFAD33;
+}
+.cucumber-react .cucumber-status--ambiguous {
+  color: #F4EBFD;
+}
+.cucumber-react .cucumber-status--failed {
+  color: #BB0000;
+}
+.cucumber-react .cucumber-status--unknown {
+  color: #B6BECB;
+}
+.cucumber-react h1, .cucumber-react h2, .cucumber-react h3 {
+  padding: 0;
+  margin: 0;
+}
+.cucumber-react a {
+  color: inherit;
+}
+.cucumber-react .gherkin-document-list {
+  font: 14px "Open Sans", sans-serif;
+  color: #161C24;
+  background: #fff;
+  overflow-x: hidden;
+}
+.cucumber-react .cucumber-title {
+  margin-top: 0.3em;
+  margin-bottom: 0;
+  display: inline-block;
+}
+.cucumber-react .cucumber-title__keyword {
+  font-weight: bold;
+}
+.cucumber-react .cucumber-title__text {
+  font-weight: normal;
+}
+.cucumber-react .cucumber-tags {
+  padding: 0;
+  margin-bottom: 0;
+}
+.cucumber-react .cucumber-tags .cucumber-tag {
+  display: inline;
+  list-style-type: none;
+  padding: 4px 8px 4px 8px;
+  margin-right: 6px;
+  background-color: #FFFFFF;
+  border-radius: 6px;
+}
+.cucumber-react .cucumber-feature__icon {
+  padding-top: 0.35em;
+  padding-right: 0.5em;
+}
+.cucumber-react .cucumber-description,
+.cucumber-react .cucumber-children {
+  margin-left: 1em;
+}
+.cucumber-react .cucumber-feature,
+.cucumber-react .cucumber-rule,
+.cucumber-react .cucumber-scenario,
+.cucumber-react .cucumber-background {
+  margin-bottom: 1em;
+}
+.cucumber-react .cucumber-steps {
+  list-style-type: none;
+  padding-left: 10px;
+}
+.cucumber-react .cucumber-steps .cucumber-step {
+  display: flex;
+}
+.cucumber-react .cucumber-steps .cucumber-step__status {
+  padding-top: 0.2em;
+  padding-right: 0.5em;
+}
+.cucumber-react .cucumber-steps .cucumber-step__content {
+  flex-grow: 1;
+  max-width: calc(100% - 1.5em);
+}
+.cucumber-react .cucumber-steps .cucumber-step__keyword {
+  font-weight: bold;
+}
+.cucumber-react .cucumber-steps .cucumber-step__text {
+  font-weight: normal;
+}
+.cucumber-react .cucumber-steps .cucumber-step__param {
+  font-weight: normal;
+  font-style: italic;
+}
+.cucumber-react .cucumber-table {
+  border-collapse: collapse;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+.cucumber-react .cucumber-table__header-cell {
+  border: 1px solid #4B5662;
+  padding: 0.3em;
+}
+.cucumber-react .cucumber-table__cell {
+  border: 1px solid #4B5662;
+  padding: 0.3em;
+}
+.cucumber-react .cucumber-table__cell__status {
+  padding: 0.5em 3px 3px 3px;
+}
+.cucumber-react .cucumber-table__cell__step {
+  flex-grow: 1;
+}
+.cucumber-react .cucumber-code {
+  padding: 0.25em;
+  background-color: #ebebeb;
+}
+.cucumber-react .cucumber-error {
+  padding: 0.5em;
+  margin: 0;
+  overflow-x: auto;
+}
+.cucumber-react .cucumber-no-documents {
+  font: 14px "Open Sans", sans-serif;
+}
+.cucumber-react .cucumber-attachment__icon {
+  margin-right: 0.5em;
+}
+.cucumber-react .cucumber-attachment__image {
+  max-width: 100%;
+  margin-top: 1em;
+}
+.cucumber-react .cucumber-attachment__text {
+  background-color: #ebebeb;
+  padding: 0.5em;
+  overflow-x: auto;
+}
+.cucumber-react .cucumber-anchor {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: 0.3em;
+}
+.cucumber-react .cucumber-anchor__link {
+  opacity: 0;
+  transition: all 0.35s ease-in-out;
+  position: absolute;
+  left: -20px;
+  display: flex;
+  align-items: center;
+}
+.cucumber-react .cucumber-anchor__icon {
+  margin-right: 0.5em;
+}
+.cucumber-react .cucumber-anchor:hover a {
+  opacity: 1;
+  width: max-content;
+  transition: all 0.35s ease-in-out;
+}
+.cucumber-react .cucumber-anchor > * {
+  height: 100%;
+  margin-top: 0px;
+}
+
+.cucumber-report-header {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  font: 11px "Open Sans", sans-serif;
+  margin-bottom: 1em;
+}
+.cucumber-report-header > * {
+  padding: 1em;
+}
+.cucumber-report-header .cucumber-status-filter {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.cucumber-report-header .cucumber-status-filter table {
+  width: 100%;
+}
+.cucumber-report-header .cucumber-execution-data {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.cucumber-report-header .cucumber-search-bar {
+  border-right: 0;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-search {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 9fr 1fr;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-search input {
+  padding: 0.4em;
+  border-radius: 0;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-search button {
+  height: 2.2em;
+  padding-left: 0.6em;
+  padding-right: 0.6em;
+}
+.cucumber-report-header .cucumber-search-bar p.help {
+  font-size: 80%;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-filter ul {
+  display: inline;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-filter ul li {
+  list-style-type: none;
+  display: inline-block;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-filter ul li input {
+  display: inline-block;
+  width: auto;
+  height: 0.6em;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-filter ul li label {
+  padding-right: 1em;
+}
+
+@media only screen and (min-width: 600px) {
+  .cucumber-report-header {
+    grid-template-columns: 1fr 1fr;
+  }
+  .cucumber-report-header .cucumber-status-filter {
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  .cucumber-report-header .cucumber-search-bar {
+    grid-column: 1/-1;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .cucumber-report-header {
+    grid-template-columns: 1fr 1fr 2fr;
+  }
+  .cucumber-report-header .cucumber-status-filter {
+    border-bottom: 0;
+  }
+  .cucumber-report-header .cucumber-execution-data {
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 0;
+  }
+  .cucumber-report-header .cucumber-search-bar {
+    grid-column: auto;
+  }
+}
+.accordion {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+}
+
+.accordion__item + .accordion__item {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.accordion__button {
+    background-color: #f4f4f4;
+    color: #444;
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    text-align: left;
+    border: none;
+}
+
+.accordion__button:hover {
+    background-color: #ddd;
+}
+
+.accordion__button:before {
+    display: inline-block;
+    content: '';
+    height: 10px;
+    width: 10px;
+    margin-right: 12px;
+    border-bottom: 2px solid currentColor;
+    border-right: 2px solid currentColor;
+    transform: rotate(-45deg);
+}
+
+.accordion__button[aria-expanded='true']::before,
+.accordion__button[aria-selected='true']::before {
+    transform: rotate(45deg);
+}
+
+.accordion__panel {
+    padding: 20px;
+    animation: fadein 0.35s ease-in;
+}
+
+	</style>
+</head>
+<body>
+<div id="content">
+</div>
+<script>
+window.CUCUMBER_MESSAGES = [{"meta":{"protocolVersion":"14.0.1","implementation":{"name":"cucumber-jvm","version":"6.10.0"},"runtime":{"name":"Java HotSpot(TM) 64-Bit Server VM","version":"25.202-b08"},"os":{"name":"Windows 10"},"cpu":{"name":"amd64"}}},{"testRunStarted":{"timestamp":{"seconds":"1709185698","nanos":938000000}}},{"source":{"uri":"file:///C:/Users/Rafi/Desktop/SPA_SFBL/SPAWebAutomation/src/test/resources/Features/01_login.feature","data":"Feature: SPA SFBL Login\r\n\r\n  @login\r\n  Scenario Outline: Login with valid data\r\n    Given user in the login page\r\n    When user enter valid \u0027\u003cuserName\u003e\u0027 and \u0027\u003cpassword\u003e\u0027\r\n    And click login button\r\n    Then successfully navigate to the dashboard\r\n\r\n    Examples:\r\n      | userName    | password      |\r\n      | fenitraders | fenitraders25 |","mediaType":"text/x.cucumber.gherkin+plain"}},{"gherkinDocument":{"uri":"file:///C:/Users/Rafi/Desktop/SPA_SFBL/SPAWebAutomation/src/test/resources/Features/01_login.feature","feature":{"location":{"line":1,"column":1},"language":"en","keyword":"Feature","name":"SPA SFBL Login","children":[{"scenario":{"location":{"line":4,"column":3},"tags":[{"location":{"line":3,"column":3},"name":"@login","id":"8d1aac25-4e78-4ba7-a3f0-32cad47bd7b8"}],"keyword":"Scenario Outline","name":"Login with valid data","steps":[{"location":{"line":5,"column":5},"keyword":"Given ","text":"user in the login page","id":"dcf3bc0b-7ac0-4001-822b-92f2f840645b"},{"location":{"line":6,"column":5},"keyword":"When ","text":"user enter valid \u0027\u003cuserName\u003e\u0027 and \u0027\u003cpassword\u003e\u0027","id":"cf800f66-fb25-4e5c-9ab0-94ed529fb62e"},{"location":{"line":7,"column":5},"keyword":"And ","text":"click login button","id":"aabd015f-ec1c-4a8e-b0ee-aacb36cb7f0f"},{"location":{"line":8,"column":5},"keyword":"Then ","text":"successfully navigate to the dashboard","id":"66a53c5e-362d-4cce-ae7d-11c2a11536f7"}],"examples":[{"location":{"line":10,"column":5},"keyword":"Examples","tableHeader":{"location":{"line":11,"column":7},"cells":[{"location":{"line":11,"column":9},"value":"userName"},{"location":{"line":11,"column":23},"value":"password"}],"id":"a17d9f14-9e93-4ca8-a711-8ac6b625da74"},"tableBody":[{"location":{"line":12,"column":7},"cells":[{"location":{"line":12,"column":9},"value":"fenitraders"},{"location":{"line":12,"column":23},"value":"fenitraders25"}],"id":"052670ab-f820-4023-89a0-5d4ff1a499f6"}],"id":"869ecfbf-3c58-4dd3-bb1f-f46fdd4d17a8"}],"id":"c91a8efd-bc58-4eb5-bb95-247fabfe8771"}}]}}},{"pickle":{"id":"d46449a3-e419-43cd-a9ba-2bb0521b75fe","uri":"file:///C:/Users/Rafi/Desktop/SPA_SFBL/SPAWebAutomation/src/test/resources/Features/01_login.feature","name":"Login with valid data","language":"en","steps":[{"text":"user in the login page","id":"67829356-12d6-4812-b213-e47eb9fe78b1","astNodeIds":["dcf3bc0b-7ac0-4001-822b-92f2f840645b","052670ab-f820-4023-89a0-5d4ff1a499f6"]},{"text":"user enter valid \u0027fenitraders\u0027 and \u0027fenitraders25\u0027","id":"403e2a5a-3648-42cd-b63d-2b5c5243bd69","astNodeIds":["cf800f66-fb25-4e5c-9ab0-94ed529fb62e","052670ab-f820-4023-89a0-5d4ff1a499f6"]},{"text":"click login button","id":"4a177e2b-b83b-4a7d-af56-a18411fe4a6c","astNodeIds":["aabd015f-ec1c-4a8e-b0ee-aacb36cb7f0f","052670ab-f820-4023-89a0-5d4ff1a499f6"]},{"text":"successfully navigate to the dashboard","id":"bfe7f812-d832-4a97-aa64-b36e5a45310e","astNodeIds":["66a53c5e-362d-4cce-ae7d-11c2a11536f7","052670ab-f820-4023-89a0-5d4ff1a499f6"]}],"tags":[{"name":"@login","astNodeId":"8d1aac25-4e78-4ba7-a3f0-32cad47bd7b8"}],"astNodeIds":["c91a8efd-bc58-4eb5-bb95-247fabfe8771","052670ab-f820-4023-89a0-5d4ff1a499f6"]}},{"source":{"uri":"file:///C:/Users/Rafi/Desktop/SPA_SFBL/SPAWebAutomation/src/test/resources/Features/02_orderRetailer.feature","data":"Feature: Order Transaction\r\n\r\n  @orderRetailer\r\n  Scenario: Add order retailer\r\n    Given click on transaction option\r\n    When select order retailer\r\n    And fill in the required information\r\n    Then save and submit the information\r\n\r\n","mediaType":"text/x.cucumber.gherkin+plain"}},{"gherkinDocument":{"uri":"file:///C:/Users/Rafi/Desktop/SPA_SFBL/SPAWebAutomation/src/test/resources/Features/02_orderRetailer.feature","feature":{"location":{"line":1,"column":1},"language":"en","keyword":"Feature","name":"Order Transaction","children":[{"scenario":{"location":{"line":4,"column":3},"tags":[{"location":{"line":3,"column":3},"name":"@orderRetailer","id":"6d4347fc-c86c-4f6c-be5a-f568a27574a4"}],"keyword":"Scenario","name":"Add order retailer","steps":[{"location":{"line":5,"column":5},"keyword":"Given ","text":"click on transaction option","id":"29c6b90a-1df7-49dd-b193-fb2dceb705f5"},{"location":{"line":6,"column":5},"keyword":"When ","text":"select order retailer","id":"23b62b35-40bb-40c6-bfc9-b3f2d103bbd4"},{"location":{"line":7,"column":5},"keyword":"And ","text":"fill in the required information","id":"4fa40b6d-ac58-4886-af5b-38b45efdb557"},{"location":{"line":8,"column":5},"keyword":"Then ","text":"save and submit the information","id":"98d886b7-f8e0-4fcd-b650-eb08878ee6b0"}],"id":"abd4f674-9080-4630-b3a3-5e9f925812c7"}}]}}},{"pickle":{"id":"7a3cb52b-a172-4f7c-aab2-68c018316248","uri":"file:///C:/Users/Rafi/Desktop/SPA_SFBL/SPAWebAutomation/src/test/resources/Features/02_orderRetailer.feature","name":"Add order retailer","language":"en","steps":[{"text":"click on transaction option","id":"cc50b17c-f581-416b-9c4c-39846f2077cb","astNodeIds":["29c6b90a-1df7-49dd-b193-fb2dceb705f5"]},{"text":"select order retailer","id":"878786d2-6589-4aad-b5e9-63a305b3c712","astNodeIds":["23b62b35-40bb-40c6-bfc9-b3f2d103bbd4"]},{"text":"fill in the required information","id":"e2500fef-1e12-4785-92a5-64aeb939e387","astNodeIds":["4fa40b6d-ac58-4886-af5b-38b45efdb557"]},{"text":"save and submit the information","id":"2a2c0b25-9117-4137-b945-c2992aade61e","astNodeIds":["98d886b7-f8e0-4fcd-b650-eb08878ee6b0"]}],"tags":[{"name":"@orderRetailer","astNodeId":"6d4347fc-c86c-4f6c-be5a-f568a27574a4"}],"astNodeIds":["abd4f674-9080-4630-b3a3-5e9f925812c7"]}},{"source":{"uri":"file:///C:/Users/Rafi/Desktop/SPA_SFBL/SPAWebAutomation/src/test/resources/Features/03_invoiceRetailer.feature","data":"Feature: Invoice Retailer\r\n\r\n  @invoiceRetailer\r\n  Scenario: check invoice retailer\r\n    Given click on transaction option\r\n    When select invoice retailer\r\n    And fill delivery date and sr name\r\n    Then view the information","mediaType":"text/x.cucumber.gherkin+plain"}},{"gherkinDocument":{"uri":"file:///C:/Users/Rafi/Desktop/SPA_SFBL/SPAWebAutomation/src/test/resources/Features/03_invoiceRetailer.feature","feature":{"location":{"line":1,"column":1},"language":"en","keyword":"Feature","name":"Invoice Retailer","children":[{"scenario":{"location":{"line":4,"column":3},"tags":[{"location":{"line":3,"column":3},"name":"@invoiceRetailer","id":"bbb2605a-1d1a-4d75-83f4-d14b5d38dfad"}],"keyword":"Scenario","name":"check invoice retailer","steps":[{"location":{"line":5,"column":5},"keyword":"Given ","text":"click on transaction option","id":"d41f5e8b-ec01-409d-ba92-cd34461c3c48"},{"location":{"line":6,"column":5},"keyword":"When ","text":"select invoice retailer","id":"69cc640e-632e-4ece-94c7-1d3f8ae5b6fc"},{"location":{"line":7,"column":5},"keyword":"And ","text":"fill delivery date and sr name","id":"488f02a5-dcbe-43b4-8773-6de1e702c1ef"},{"location":{"line":8,"column":5},"keyword":"Then ","text":"view the information","id":"10aea9a5-2da5-4b2a-882d-0b1f5f1f4646"}],"id":"eee280d1-6d5b-4512-98ba-a656177d86b5"}}]}}},{"pickle":{"id":"2c7d5f28-289f-4eb7-b8e1-631aadb439ed","uri":"file:///C:/Users/Rafi/Desktop/SPA_SFBL/SPAWebAutomation/src/test/resources/Features/03_invoiceRetailer.feature","name":"check invoice retailer","language":"en","steps":[{"text":"click on transaction option","id":"8bf4c216-ee9a-42fb-91e4-2c3dce5b25ea","astNodeIds":["d41f5e8b-ec01-409d-ba92-cd34461c3c48"]},{"text":"select invoice retailer","id":"c7104c9e-2803-4226-8f50-dcb42a448c06","astNodeIds":["69cc640e-632e-4ece-94c7-1d3f8ae5b6fc"]},{"text":"fill delivery date and sr name","id":"c22d4155-780d-46e9-b67f-9f1aa6730077","astNodeIds":["488f02a5-dcbe-43b4-8773-6de1e702c1ef"]},{"text":"view the information","id":"0c4c41f2-d276-4429-9661-d3657a918ec0","astNodeIds":["10aea9a5-2da5-4b2a-882d-0b1f5f1f4646"]}],"tags":[{"name":"@invoiceRetailer","astNodeId":"bbb2605a-1d1a-4d75-83f4-d14b5d38dfad"}],"astNodeIds":["eee280d1-6d5b-4512-98ba-a656177d86b5"]}},{"source":{"uri":"file:///C:/Users/Rafi/Desktop/SPA_SFBL/SPAWebAutomation/src/test/resources/Features/04_invoiceDisplay.feature","data":"Feature: Invoice Display\r\n\r\n  @invoiceDisplay\r\n  Scenario: check invoice display\r\n    Given click on transaction option\r\n    When select invoice display\r\n    And select delivery date\r\n    Then view the display information","mediaType":"text/x.cucumber.gherkin+plain"}},{"gherkinDocument":{"uri":"file:///C:/Users/Rafi/Desktop/SPA_SFBL/SPAWebAutomation/src/test/resources/Features/04_invoiceDisplay.feature","feature":{"location":{"line":1,"column":1},"language":"en","keyword":"Feature","name":"Invoice Display","children":[{"scenario":{"location":{"line":4,"column":3},"tags":[{"location":{"line":3,"column":3},"name":"@invoiceDisplay","id":"31af4483-39a8-4eb9-902b-7650bfa82f76"}],"keyword":"Scenario","name":"check invoice display","steps":[{"location":{"line":5,"column":5},"keyword":"Given ","text":"click on transaction option","id":"60502b3d-0bc6-4e7e-8b00-8f5a0f4e9400"},{"location":{"line":6,"column":5},"keyword":"When ","text":"select invoice display","id":"50729d33-50e1-425a-8478-ae2c3cb99799"},{"location":{"line":7,"column":5},"keyword":"And ","text":"select delivery date","id":"7ca38d6a-4e67-4eb2-8bae-da99c8d6863b"},{"location":{"line":8,"column":5},"keyword":"Then ","text":"view the display information","id":"3a806658-54d7-45f0-a20d-724b983eab0a"}],"id":"ebf0bf9c-8042-4439-857f-2a4f388100c6"}}]}}},{"pickle":{"id":"d89ccd81-b93b-41f8-a1cd-e4b44cce4d2d","uri":"file:///C:/Users/Rafi/Desktop/SPA_SFBL/SPAWebAutomation/src/test/resources/Features/04_invoiceDisplay.feature","name":"check invoice display","language":"en","steps":[{"text":"click on transaction option","id":"45efc4e7-ffe7-4e35-be9f-2f3553502885","astNodeIds":["60502b3d-0bc6-4e7e-8b00-8f5a0f4e9400"]},{"text":"select invoice display","id":"63e87078-e347-46a3-9a6e-3fef12fb9847","astNodeIds":["50729d33-50e1-425a-8478-ae2c3cb99799"]},{"text":"select delivery date","id":"b7c7a6c7-3e29-4dff-b83c-b8b55641601c","astNodeIds":["7ca38d6a-4e67-4eb2-8bae-da99c8d6863b"]},{"text":"view the display information","id":"580aff52-d527-4eac-9d44-a4580f5cc9ff","astNodeIds":["3a806658-54d7-45f0-a20d-724b983eab0a"]}],"tags":[{"name":"@invoiceDisplay","astNodeId":"31af4483-39a8-4eb9-902b-7650bfa82f76"}],"astNodeIds":["ebf0bf9c-8042-4439-857f-2a4f388100c6"]}},{"source":{"uri":"file:///C:/Users/Rafi/Desktop/SPA_SFBL/SPAWebAutomation/src/test/resources/Features/05_invoiceReturnFromRetailer.feature","data":"Feature: Invoice Display\r\n\r\n  @invoiceReturnFromRetailer\r\n  Scenario: check invoice display\r\n    Given click on transaction option\r\n    When select invoice return from retailer\r\n    And write the invoice number\r\n    And select full or partial return\r\n    And write return quantity\r\n    Then save the invoice return from retailer","mediaType":"text/x.cucumber.gherkin+plain"}},{"gherkinDocument":{"uri":"file:///C:/Users/Rafi/Desktop/SPA_SFBL/SPAWebAutomation/src/test/resources/Features/05_invoiceReturnFromRetailer.feature","feature":{"location":{"line":1,"column":1},"language":"en","keyword":"Feature","name":"Invoice Display","children":[{"scenario":{"location":{"line":4,"column":3},"tags":[{"location":{"line":3,"column":3},"name":"@invoiceReturnFromRetailer","id":"6d8f5026-1585-435b-9bfb-a234961fcb61"}],"keyword":"Scenario","name":"check invoice display","steps":[{"location":{"line":5,"column":5},"keyword":"Given ","text":"click on transaction option","id":"2832c901-aab5-4fe4-ac23-a9a38b98c7ca"},{"location":{"line":6,"column":5},"keyword":"When ","text":"select invoice return from retailer","id":"d192a479-f98e-4d01-9d6c-97486b550075"},{"location":{"line":7,"column":5},"keyword":"And ","text":"write the invoice number","id":"ca77c2c2-7de8-4cc5-92c8-1f17d90c47f4"},{"location":{"line":8,"column":5},"keyword":"And ","text":"select full or partial return","id":"1eb92cc8-8f04-4d87-a73f-456b81312916"},{"location":{"line":9,"column":5},"keyword":"And ","text":"write return quantity","id":"b2dbb3fe-701c-4854-b79f-4fed44773965"},{"location":{"line":10,"column":5},"keyword":"Then ","text":"save the invoice return from retailer","id":"249d8cce-536d-465b-a5d3-1cca0a27b9f8"}],"id":"e15be675-a32a-4cf3-9f0d-88e41eb51f79"}}]}}},{"pickle":{"id":"83d2da70-cb61-4e1e-b162-806757b2f4fb","uri":"file:///C:/Users/Rafi/Desktop/SPA_SFBL/SPAWebAutomation/src/test/resources/Features/05_invoiceReturnFromRetailer.feature","name":"check invoice display","language":"en","steps":[{"text":"click on transaction option","id":"40a08e15-0ba8-499d-9257-c9f541500cf5","astNodeIds":["2832c901-aab5-4fe4-ac23-a9a38b98c7ca"]},{"text":"select invoice return from retailer","id":"1db655b8-4142-4f10-9204-beb728b2bd8c","astNodeIds":["d192a479-f98e-4d01-9d6c-97486b550075"]},{"text":"write the invoice number","id":"19b9b6b8-ac55-46cb-8c40-4283081c72c3","astNodeIds":["ca77c2c2-7de8-4cc5-92c8-1f17d90c47f4"]},{"text":"select full or partial return","id":"aa49c191-5162-496d-87eb-1f0208588003","astNodeIds":["1eb92cc8-8f04-4d87-a73f-456b81312916"]},{"text":"write return quantity","id":"38a77959-a128-42d5-9981-03a9d960814e","astNodeIds":["b2dbb3fe-701c-4854-b79f-4fed44773965"]},{"text":"save the invoice return from retailer","id":"7ebbbdbc-4be1-477b-ab16-df6f263ca1c0","astNodeIds":["249d8cce-536d-465b-a5d3-1cca0a27b9f8"]}],"tags":[{"name":"@invoiceReturnFromRetailer","astNodeId":"6d8f5026-1585-435b-9bfb-a234961fcb61"}],"astNodeIds":["e15be675-a32a-4cf3-9f0d-88e41eb51f79"]}},{"source":{"uri":"file:///C:/Users/Rafi/Desktop/SPA_SFBL/SPAWebAutomation/src/test/resources/Features/06_requisitionToFactory.feature","data":"Feature: Requisition to Factory\r\n\r\n  @requisitionToFactory\r\n  Scenario: check requisition to factory\r\n    Given click on transaction option\r\n    When select requisition to factory\r\n    And select the add items\r\n    And write how many boxes you require\r\n    Then save the requisition to factory\u0027s information","mediaType":"text/x.cucumber.gherkin+plain"}},{"gherkinDocument":{"uri":"file:///C:/Users/Rafi/Desktop/SPA_SFBL/SPAWebAutomation/src/test/resources/Features/06_requisitionToFactory.feature","feature":{"location":{"line":1,"column":1},"language":"en","keyword":"Feature","name":"Requisition to Factory","children":[{"scenario":{"location":{"line":4,"column":3},"tags":[{"location":{"line":3,"column":3},"name":"@requisitionToFactory","id":"770d5e91-cce2-4bc4-9590-f7403f1d9498"}],"keyword":"Scenario","name":"check requisition to factory","steps":[{"location":{"line":5,"column":5},"keyword":"Given ","text":"click on transaction option","id":"77031e3f-587a-4dbc-92ee-3767a72c8098"},{"location":{"line":6,"column":5},"keyword":"When ","text":"select requisition to factory","id":"19abfd70-4c7f-48dc-ab7c-435480b4719e"},{"location":{"line":7,"column":5},"keyword":"And ","text":"select the add items","id":"bbcec05a-0790-40a6-b3a4-bf03f7b42c63"},{"location":{"line":8,"column":5},"keyword":"And ","text":"write how many boxes you require","id":"a416648b-e3be-4794-b9a2-da8dba099df3"},{"location":{"line":9,"column":5},"keyword":"Then ","text":"save the requisition to factory\u0027s information","id":"b6194ce9-cab6-49c9-9e59-f954b423f444"}],"id":"730e3f1a-630d-4638-ad96-b11b3f51f22f"}}]}}},{"pickle":{"id":"42c50f44-541d-447e-b8c7-e5e18b095205","uri":"file:///C:/Users/Rafi/Desktop/SPA_SFBL/SPAWebAutomation/src/test/resources/Features/06_requisitionToFactory.feature","name":"check requisition to factory","language":"en","steps":[{"text":"click on transaction option","id":"54488e86-d28b-4cb6-9a1d-27719c5e5729","astNodeIds":["77031e3f-587a-4dbc-92ee-3767a72c8098"]},{"text":"select requisition to factory","id":"4b0bb99f-52f9-4993-8dce-14202713eeed","astNodeIds":["19abfd70-4c7f-48dc-ab7c-435480b4719e"]},{"text":"select the add items","id":"2e523ff6-d548-4a3b-8ee2-5756be60e5b2","astNodeIds":["bbcec05a-0790-40a6-b3a4-bf03f7b42c63"]},{"text":"write how many boxes you require","id":"39907084-7e6c-42cb-a7cb-4f208bfd546f","astNodeIds":["a416648b-e3be-4794-b9a2-da8dba099df3"]},{"text":"save the requisition to factory\u0027s information","id":"ed973c93-93e0-4c42-9053-827ffdf58b26","astNodeIds":["b6194ce9-cab6-49c9-9e59-f954b423f444"]}],"tags":[{"name":"@requisitionToFactory","astNodeId":"770d5e91-cce2-4bc4-9590-f7403f1d9498"}],"astNodeIds":["730e3f1a-630d-4638-ad96-b11b3f51f22f"]}},{"source":{"uri":"file:///C:/Users/Rafi/Desktop/SPA_SFBL/SPAWebAutomation/src/test/resources/Features/07_replacementSummarySheet.feature","data":"Feature: Replacement Summary Sheet\r\n\r\n  @replacementSummarySheet\r\n  Scenario: check replacement summary sheet\r\n    Given click on transaction option\r\n    When select replacement summary sheet\r\n    And select market name\r\n    And select replacement cause\r\n    And add product\r\n    Then save the replacement summary sheet\u0027s information","mediaType":"text/x.cucumber.gherkin+plain"}},{"gherkinDocument":{"uri":"file:///C:/Users/Rafi/Desktop/SPA_SFBL/SPAWebAutomation/src/test/resources/Features/07_replacementSummarySheet.feature","feature":{"location":{"line":1,"column":1},"language":"en","keyword":"Feature","name":"Replacement Summary Sheet","children":[{"scenario":{"location":{"line":4,"column":3},"tags":[{"location":{"line":3,"column":3},"name":"@replacementSummarySheet","id":"8a8f2a7a-ba3d-4b25-84dd-21536bb797d3"}],"keyword":"Scenario","name":"check replacement summary sheet","steps":[{"location":{"line":5,"column":5},"keyword":"Given ","text":"click on transaction option","id":"5056b626-ec4e-479c-a2f5-333a64a83fb6"},{"location":{"line":6,"column":5},"keyword":"When ","text":"select replacement summary sheet","id":"3f4cfb3b-2385-4008-b287-c311ed4639e4"},{"location":{"line":7,"column":5},"keyword":"And ","text":"select market name","id":"b74dc4b4-b334-49b8-925b-549c13b7d352"},{"location":{"line":8,"column":5},"keyword":"And ","text":"select replacement cause","id":"a5a4e2e2-bbdc-4f9d-bbf1-903f7a7e3303"},{"location":{"line":9,"column":5},"keyword":"And ","text":"add product","id":"73c39b3d-c230-497e-ab32-9b0979ba8a88"},{"location":{"line":10,"column":5},"keyword":"Then ","text":"save the replacement summary sheet\u0027s information","id":"63bcc5c5-41c5-41c3-9b50-2f28e0a9e3a9"}],"id":"37f4d249-2173-4a5d-b616-521f53f3918d"}}]}}},{"pickle":{"id":"85d7f515-3e74-44df-9957-7c3dd864d7ce","uri":"file:///C:/Users/Rafi/Desktop/SPA_SFBL/SPAWebAutomation/src/test/resources/Features/07_replacementSummarySheet.feature","name":"check replacement summary sheet","language":"en","steps":[{"text":"click on transaction option","id":"82eca472-9f7d-435f-8e16-14b0973e290a","astNodeIds":["5056b626-ec4e-479c-a2f5-333a64a83fb6"]},{"text":"select replacement summary sheet","id":"599a844b-fca5-4614-ad19-8537fea7e483","astNodeIds":["3f4cfb3b-2385-4008-b287-c311ed4639e4"]},{"text":"select market name","id":"04dbd90c-410d-4728-85df-2daef813d183","astNodeIds":["b74dc4b4-b334-49b8-925b-549c13b7d352"]},{"text":"select replacement cause","id":"e38b5e5c-edc6-4847-bcf0-78c3beba533b","astNodeIds":["a5a4e2e2-bbdc-4f9d-bbf1-903f7a7e3303"]},{"text":"add product","id":"4cd770e1-b557-432b-8239-b45f1b4f1a84","astNodeIds":["73c39b3d-c230-497e-ab32-9b0979ba8a88"]},{"text":"save the replacement summary sheet\u0027s information","id":"75a47dba-e638-48fa-be2b-3346213bf1c5","astNodeIds":["63bcc5c5-41c5-41c3-9b50-2f28e0a9e3a9"]}],"tags":[{"name":"@replacementSummarySheet","astNodeId":"8a8f2a7a-ba3d-4b25-84dd-21536bb797d3"}],"astNodeIds":["37f4d249-2173-4a5d-b616-521f53f3918d"]}},{"source":{"uri":"file:///C:/Users/Rafi/Desktop/SPA_SFBL/SPAWebAutomation/src/test/resources/Features/08_demageStockTransferForReplacement.feature","data":"Feature: Damage Stock Transfer For Replacement\r\n\r\n  @damageStockTransferForReplacement\r\n  Scenario: check damage stock transfer for replacement\r\n    Given click on transaction option\r\n    When select  damage stock transfer for replacement\r\n    And select market name\r\n    And add damage product\r\n    And add damage policy\r\n    Then save the damage stock transfer for replacement\u0027s information","mediaType":"text/x.cucumber.gherkin+plain"}},{"gherkinDocument":{"uri":"file:///C:/Users/Rafi/Desktop/SPA_SFBL/SPAWebAutomation/src/test/resources/Features/08_demageStockTransferForReplacement.feature","feature":{"location":{"line":1,"column":1},"language":"en","keyword":"Feature","name":"Damage Stock Transfer For Replacement","children":[{"scenario":{"location":{"line":4,"column":3},"tags":[{"location":{"line":3,"column":3},"name":"@damageStockTransferForReplacement","id":"1ade208b-3783-477e-91c5-40af5c58125b"}],"keyword":"Scenario","name":"check damage stock transfer for replacement","steps":[{"location":{"line":5,"column":5},"keyword":"Given ","text":"click on transaction option","id":"832894f4-ae92-4c55-81c3-0b6b543cbf83"},{"location":{"line":6,"column":5},"keyword":"When ","text":"select  damage stock transfer for replacement","id":"db52bd52-320b-4ec8-a141-565e3975225a"},{"location":{"line":7,"column":5},"keyword":"And ","text":"select market name","id":"0ad12bd7-1919-459d-a7f1-4be78f207830"},{"location":{"line":8,"column":5},"keyword":"And ","text":"add damage product","id":"1ead51a0-fdc9-4441-9f39-9053c0acad71"},{"location":{"line":9,"column":5},"keyword":"And ","text":"add damage policy","id":"450d05cb-419b-45f8-8013-f31940faf816"},{"location":{"line":10,"column":5},"keyword":"Then ","text":"save the damage stock transfer for replacement\u0027s information","id":"84b33ad0-8477-4582-bd45-843506d99a15"}],"id":"a30f3593-7d42-487a-8b82-558b9ce182ec"}}]}}},{"pickle":{"id":"e0e51809-4831-4455-b67b-a666c36a9693","uri":"file:///C:/Users/Rafi/Desktop/SPA_SFBL/SPAWebAutomation/src/test/resources/Features/08_demageStockTransferForReplacement.feature","name":"check damage stock transfer for replacement","language":"en","steps":[{"text":"click on transaction option","id":"acce80a6-7571-4e5f-a36d-1cf3f763a767","astNodeIds":["832894f4-ae92-4c55-81c3-0b6b543cbf83"]},{"text":"select  damage stock transfer for replacement","id":"adec81ec-d051-4e2c-9ba5-3daa31b3445c","astNodeIds":["db52bd52-320b-4ec8-a141-565e3975225a"]},{"text":"select market name","id":"f3614c6a-f5c8-43a2-abb1-946ee169a4d6","astNodeIds":["0ad12bd7-1919-459d-a7f1-4be78f207830"]},{"text":"add damage product","id":"5bfbf34c-7ca8-4e63-9328-65363e9b7b51","astNodeIds":["1ead51a0-fdc9-4441-9f39-9053c0acad71"]},{"text":"add damage policy","id":"8bb42ad3-d175-49a6-b74e-4721f02be479","astNodeIds":["450d05cb-419b-45f8-8013-f31940faf816"]},{"text":"save the damage stock transfer for replacement\u0027s information","id":"25f8d8d0-1dd9-46a2-a743-f8c11e3b750d","astNodeIds":["84b33ad0-8477-4582-bd45-843506d99a15"]}],"tags":[{"name":"@damageStockTransferForReplacement","astNodeId":"1ade208b-3783-477e-91c5-40af5c58125b"}],"astNodeIds":["a30f3593-7d42-487a-8b82-558b9ce182ec"]}},{"source":{"uri":"file:///C:/Users/Rafi/Desktop/SPA_SFBL/SPAWebAutomation/src/test/resources/Features/09_shortProducts.feature","data":"Feature: Short Products Details\r\n\r\n  @shortProducts\r\n  Scenario: check the short products\r\n    Given click on transaction option\r\n    When select short product\r\n    And fill the short products required information\r\n    Then save the short products information","mediaType":"text/x.cucumber.gherkin+plain"}},{"gherkinDocument":{"uri":"file:///C:/Users/Rafi/Desktop/SPA_SFBL/SPAWebAutomation/src/test/resources/Features/09_shortProducts.feature","feature":{"location":{"line":1,"column":1},"language":"en","keyword":"Feature","name":"Short Products Details","children":[{"scenario":{"location":{"line":4,"column":3},"tags":[{"location":{"line":3,"column":3},"name":"@shortProducts","id":"260c7436-d414-49e6-a539-cace59bdbc34"}],"keyword":"Scenario","name":"check the short products","steps":[{"location":{"line":5,"column":5},"keyword":"Given ","text":"click on transaction option","id":"802d99c6-3d13-492d-af53-f4e2c0315733"},{"location":{"line":6,"column":5},"keyword":"When ","text":"select short product","id":"125e203f-0dcf-48f0-a1fb-9f3d9e812b21"},{"location":{"line":7,"column":5},"keyword":"And ","text":"fill the short products required information","id":"7cb09ebd-8d77-4773-8808-e9e656e5a92c"},{"location":{"line":8,"column":5},"keyword":"Then ","text":"save the short products information","id":"0f14c539-c02b-46c3-ad0c-cfcdd8e50df6"}],"id":"70d7243e-8020-40f6-be66-f5f11cc60864"}}]}}},{"pickle":{"id":"02520d5e-c887-45ba-a959-006c521bc33c","uri":"file:///C:/Users/Rafi/Desktop/SPA_SFBL/SPAWebAutomation/src/test/resources/Features/09_shortProducts.feature","name":"check the short products","language":"en","steps":[{"text":"click on transaction option","id":"7f1a394b-4072-4f32-b267-c1c87597ec73","astNodeIds":["802d99c6-3d13-492d-af53-f4e2c0315733"]},{"text":"select short product","id":"1223f89c-37c0-418c-8539-e8592b7abe46","astNodeIds":["125e203f-0dcf-48f0-a1fb-9f3d9e812b21"]},{"text":"fill the short products required information","id":"45d57885-214b-48c0-87ae-c8ed224d5083","astNodeIds":["7cb09ebd-8d77-4773-8808-e9e656e5a92c"]},{"text":"save the short products information","id":"18c3fdb4-5d6a-4177-9313-02e1fa82ecb4","astNodeIds":["0f14c539-c02b-46c3-ad0c-cfcdd8e50df6"]}],"tags":[{"name":"@shortProducts","astNodeId":"260c7436-d414-49e6-a539-cace59bdbc34"}],"astNodeIds":["70d7243e-8020-40f6-be66-f5f11cc60864"]}},{"source":{"uri":"file:///C:/Users/Rafi/Desktop/SPA_SFBL/SPAWebAutomation/src/test/resources/Features/10_retailerDisplayProgramParticipation.feature","data":"Feature: Retailer Display Program Participation Details\r\n\r\n  @retailerDisplayProgramParticipation\r\n  Scenario: check Retailer Display Program Participation\r\n    Given click on transaction option\r\n    When select retailer display program participation\r\n    And fill the required information\r\n    Then save the information","mediaType":"text/x.cucumber.gherkin+plain"}},{"gherkinDocument":{"uri":"file:///C:/Users/Rafi/Desktop/SPA_SFBL/SPAWebAutomation/src/test/resources/Features/10_retailerDisplayProgramParticipation.feature","feature":{"location":{"line":1,"column":1},"language":"en","keyword":"Feature","name":"Retailer Display Program Participation Details","children":[{"scenario":{"location":{"line":4,"column":3},"tags":[{"location":{"line":3,"column":3},"name":"@retailerDisplayProgramParticipation","id":"0821bcc7-937c-4be3-aff8-a44c381c1203"}],"keyword":"Scenario","name":"check Retailer Display Program Participation","steps":[{"location":{"line":5,"column":5},"keyword":"Given ","text":"click on transaction option","id":"c622b383-4cd2-4a75-b9c6-944d1cbea661"},{"location":{"line":6,"column":5},"keyword":"When ","text":"select retailer display program participation","id":"82e99d6b-19ef-4da5-a2ac-df54ff0f5ca4"},{"location":{"line":7,"column":5},"keyword":"And ","text":"fill the required information","id":"42fa44d7-5bcb-431b-8ee8-283f81141732"},{"location":{"line":8,"column":5},"keyword":"Then ","text":"save the information","id":"6ef2224e-9d98-463d-ad9d-a17b075787bd"}],"id":"e91d469a-5ab6-4da0-b58d-df9197ddc994"}}]}}},{"pickle":{"id":"7f696af8-024d-4d8f-b1eb-da87543d974b","uri":"file:///C:/Users/Rafi/Desktop/SPA_SFBL/SPAWebAutomation/src/test/resources/Features/10_retailerDisplayProgramParticipation.feature","name":"check Retailer Display Program Participation","language":"en","steps":[{"text":"click on transaction option","id":"8633b0ea-072e-48b2-8913-8a9ca6ce93d7","astNodeIds":["c622b383-4cd2-4a75-b9c6-944d1cbea661"]},{"text":"select retailer display program participation","id":"5dd2510a-2740-4735-b268-9b31cc8c96f6","astNodeIds":["82e99d6b-19ef-4da5-a2ac-df54ff0f5ca4"]},{"text":"fill the required information","id":"010ff38f-9c85-4d60-9174-afb0e7969b92","astNodeIds":["42fa44d7-5bcb-431b-8ee8-283f81141732"]},{"text":"save the information","id":"81532ba7-6e67-4fe7-91ab-c63362b8c681","astNodeIds":["6ef2224e-9d98-463d-ad9d-a17b075787bd"]}],"tags":[{"name":"@retailerDisplayProgramParticipation","astNodeId":"0821bcc7-937c-4be3-aff8-a44c381c1203"}],"astNodeIds":["e91d469a-5ab6-4da0-b58d-df9197ddc994"]}},{"testCase":{"id":"7c63c6b5-c6c9-429d-9a70-01c0d7f3a7d1","pickleId":"d46449a3-e419-43cd-a9ba-2bb0521b75fe","testSteps":[{"id":"184a8d8e-3f67-4fbc-b7dc-8b5f45e58188","pickleStepId":"67829356-12d6-4812-b213-e47eb9fe78b1","stepDefinitionIds":["26001733-16eb-4bf4-9199-fda77e676475"],"stepMatchArgumentsLists":[{}]},{"id":"158b4aa3-1d77-4e65-b202-c2e771f18a47","pickleStepId":"403e2a5a-3648-42cd-b63d-2b5c5243bd69","stepDefinitionIds":["5ca9d491-9e0f-4822-a411-37575ca605aa"],"stepMatchArgumentsLists":[{"stepMatchArguments":[{"parameterTypeName":"string","group":{"start":17,"value":"\u0027fenitraders\u0027","children":[{"children":[{}]},{"start":18,"value":"fenitraders","children":[{}]}]}},{"parameterTypeName":"string","group":{"start":35,"value":"\u0027fenitraders25\u0027","children":[{"children":[{}]},{"start":36,"value":"fenitraders25","children":[{}]}]}}]}]},{"id":"9d6f16cb-d2d2-495b-9916-ab4988c93d68","pickleStepId":"4a177e2b-b83b-4a7d-af56-a18411fe4a6c","stepDefinitionIds":["c881450c-01f3-4f5e-a026-af1e388ff3d0"],"stepMatchArgumentsLists":[{}]},{"id":"e1eb96be-b76b-4929-a12d-04717cbdfe06","pickleStepId":"bfe7f812-d832-4a97-aa64-b36e5a45310e","stepDefinitionIds":["86ab3dab-7c55-48a1-896f-fe479c48c4d1"],"stepMatchArgumentsLists":[{}]}]}},{"testCaseStarted":{"timestamp":{"seconds":"1709185699","nanos":62000000},"testCaseId":"7c63c6b5-c6c9-429d-9a70-01c0d7f3a7d1","id":"f4bd379d-7e30-4ba5-b8dc-3830c02f0ad9"}},{"testStepStarted":{"timestamp":{"seconds":"1709185699","nanos":67000000},"testStepId":"184a8d8e-3f67-4fbc-b7dc-8b5f45e58188","testCaseStartedId":"f4bd379d-7e30-4ba5-b8dc-3830c02f0ad9"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"seconds":"4","nanos":599000000}},"timestamp":{"seconds":"1709185703","nanos":666000000},"testStepId":"184a8d8e-3f67-4fbc-b7dc-8b5f45e58188","testCaseStartedId":"f4bd379d-7e30-4ba5-b8dc-3830c02f0ad9"}},{"testStepStarted":{"timestamp":{"seconds":"1709185703","nanos":684000000},"testStepId":"158b4aa3-1d77-4e65-b202-c2e771f18a47","testCaseStartedId":"f4bd379d-7e30-4ba5-b8dc-3830c02f0ad9"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"nanos":159000000}},"timestamp":{"seconds":"1709185703","nanos":843000000},"testStepId":"158b4aa3-1d77-4e65-b202-c2e771f18a47","testCaseStartedId":"f4bd379d-7e30-4ba5-b8dc-3830c02f0ad9"}},{"testStepStarted":{"timestamp":{"seconds":"1709185703","nanos":843000000},"testStepId":"9d6f16cb-d2d2-495b-9916-ab4988c93d68","testCaseStartedId":"f4bd379d-7e30-4ba5-b8dc-3830c02f0ad9"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"nanos":46000000}},"timestamp":{"seconds":"1709185703","nanos":889000000},"testStepId":"9d6f16cb-d2d2-495b-9916-ab4988c93d68","testCaseStartedId":"f4bd379d-7e30-4ba5-b8dc-3830c02f0ad9"}},{"testStepStarted":{"timestamp":{"seconds":"1709185703","nanos":890000000},"testStepId":"e1eb96be-b76b-4929-a12d-04717cbdfe06","testCaseStartedId":"f4bd379d-7e30-4ba5-b8dc-3830c02f0ad9"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"seconds":"4","nanos":304000000}},"timestamp":{"seconds":"1709185708","nanos":194000000},"testStepId":"e1eb96be-b76b-4929-a12d-04717cbdfe06","testCaseStartedId":"f4bd379d-7e30-4ba5-b8dc-3830c02f0ad9"}},{"testCaseFinished":{"timestamp":{"seconds":"1709185708","nanos":195000000},"testCaseStartedId":"f4bd379d-7e30-4ba5-b8dc-3830c02f0ad9"}},{"testCase":{"id":"76b49191-72e1-4764-a9d2-4fa6573b4253","pickleId":"7a3cb52b-a172-4f7c-aab2-68c018316248","testSteps":[{"id":"a869f866-4360-4270-a042-a93244a8b954","pickleStepId":"cc50b17c-f581-416b-9c4c-39846f2077cb","stepDefinitionIds":["66d27fa0-5a5c-4658-bf38-5884ad48e1e0"],"stepMatchArgumentsLists":[{}]},{"id":"486bfc46-215b-437d-9ca8-23d628e04c36","pickleStepId":"878786d2-6589-4aad-b5e9-63a305b3c712","stepDefinitionIds":["a4663e2c-297f-4a95-9754-64470a398e9c"],"stepMatchArgumentsLists":[{}]},{"id":"f46abcea-a9ab-4338-9a89-da2453401572","pickleStepId":"e2500fef-1e12-4785-92a5-64aeb939e387","stepDefinitionIds":["37902c4c-7165-4a4e-b161-0d201decd6a4"],"stepMatchArgumentsLists":[{}]},{"id":"3f15fffc-2a82-48d9-8ea5-3718346a8d42","pickleStepId":"2a2c0b25-9117-4137-b945-c2992aade61e","stepDefinitionIds":["5a1227f0-1142-4f72-bd6a-6c7a92833e0e"],"stepMatchArgumentsLists":[{}]}]}},{"testCaseStarted":{"timestamp":{"seconds":"1709185708","nanos":208000000},"testCaseId":"76b49191-72e1-4764-a9d2-4fa6573b4253","id":"92e1e785-9b03-49be-877f-e67dd43d650f"}},{"testStepStarted":{"timestamp":{"seconds":"1709185708","nanos":208000000},"testStepId":"a869f866-4360-4270-a042-a93244a8b954","testCaseStartedId":"92e1e785-9b03-49be-877f-e67dd43d650f"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"nanos":46000000}},"timestamp":{"seconds":"1709185708","nanos":254000000},"testStepId":"a869f866-4360-4270-a042-a93244a8b954","testCaseStartedId":"92e1e785-9b03-49be-877f-e67dd43d650f"}},{"testStepStarted":{"timestamp":{"seconds":"1709185708","nanos":256000000},"testStepId":"486bfc46-215b-437d-9ca8-23d628e04c36","testCaseStartedId":"92e1e785-9b03-49be-877f-e67dd43d650f"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"nanos":611000000}},"timestamp":{"seconds":"1709185708","nanos":867000000},"testStepId":"486bfc46-215b-437d-9ca8-23d628e04c36","testCaseStartedId":"92e1e785-9b03-49be-877f-e67dd43d650f"}},{"testStepStarted":{"timestamp":{"seconds":"1709185708","nanos":867000000},"testStepId":"f46abcea-a9ab-4338-9a89-da2453401572","testCaseStartedId":"92e1e785-9b03-49be-877f-e67dd43d650f"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"seconds":"12","nanos":870000000}},"timestamp":{"seconds":"1709185721","nanos":737000000},"testStepId":"f46abcea-a9ab-4338-9a89-da2453401572","testCaseStartedId":"92e1e785-9b03-49be-877f-e67dd43d650f"}},{"testStepStarted":{"timestamp":{"seconds":"1709185721","nanos":738000000},"testStepId":"3f15fffc-2a82-48d9-8ea5-3718346a8d42","testCaseStartedId":"92e1e785-9b03-49be-877f-e67dd43d650f"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"nanos":40000000}},"timestamp":{"seconds":"1709185721","nanos":778000000},"testStepId":"3f15fffc-2a82-48d9-8ea5-3718346a8d42","testCaseStartedId":"92e1e785-9b03-49be-877f-e67dd43d650f"}},{"testCaseFinished":{"timestamp":{"seconds":"1709185721","nanos":779000000},"testCaseStartedId":"92e1e785-9b03-49be-877f-e67dd43d650f"}},{"testCase":{"id":"d5ed5b16-884d-4571-844c-d10af13e0c9e","pickleId":"2c7d5f28-289f-4eb7-b8e1-631aadb439ed","testSteps":[{"id":"3250a4c7-353c-4d1a-a850-00cad010e39b","pickleStepId":"8bf4c216-ee9a-42fb-91e4-2c3dce5b25ea","stepDefinitionIds":["7109c52d-fc56-422e-aa42-a4135af73c61"],"stepMatchArgumentsLists":[{}]},{"id":"948f1500-da7a-4980-adc4-2d283c042f0e","pickleStepId":"c7104c9e-2803-4226-8f50-dcb42a448c06","stepDefinitionIds":["2e424662-aca7-4f83-9f56-d17bed7a2cbd"],"stepMatchArgumentsLists":[{}]},{"id":"8c2a65bf-5b85-4342-b4f4-87308d6a3943","pickleStepId":"c22d4155-780d-46e9-b67f-9f1aa6730077","stepDefinitionIds":["0e6e7c14-2365-4a21-9893-6864d7cf2243"],"stepMatchArgumentsLists":[{}]},{"id":"c9cf2a76-5a51-4ccf-aa58-527584042da0","pickleStepId":"0c4c41f2-d276-4429-9661-d3657a918ec0","stepDefinitionIds":["b29098a4-541f-4e66-9919-64c79ec88514"],"stepMatchArgumentsLists":[{}]}]}},{"testCaseStarted":{"timestamp":{"seconds":"1709185721","nanos":783000000},"testCaseId":"d5ed5b16-884d-4571-844c-d10af13e0c9e","id":"890da039-c3e7-41d4-a506-d108d293853e"}},{"testStepStarted":{"timestamp":{"seconds":"1709185721","nanos":783000000},"testStepId":"3250a4c7-353c-4d1a-a850-00cad010e39b","testCaseStartedId":"890da039-c3e7-41d4-a506-d108d293853e"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"nanos":78000000}},"timestamp":{"seconds":"1709185721","nanos":861000000},"testStepId":"3250a4c7-353c-4d1a-a850-00cad010e39b","testCaseStartedId":"890da039-c3e7-41d4-a506-d108d293853e"}},{"testStepStarted":{"timestamp":{"seconds":"1709185721","nanos":862000000},"testStepId":"948f1500-da7a-4980-adc4-2d283c042f0e","testCaseStartedId":"890da039-c3e7-41d4-a506-d108d293853e"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"seconds":"1","nanos":628000000}},"timestamp":{"seconds":"1709185723","nanos":490000000},"testStepId":"948f1500-da7a-4980-adc4-2d283c042f0e","testCaseStartedId":"890da039-c3e7-41d4-a506-d108d293853e"}},{"testStepStarted":{"timestamp":{"seconds":"1709185723","nanos":491000000},"testStepId":"8c2a65bf-5b85-4342-b4f4-87308d6a3943","testCaseStartedId":"890da039-c3e7-41d4-a506-d108d293853e"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"seconds":"1","nanos":697000000}},"timestamp":{"seconds":"1709185725","nanos":188000000},"testStepId":"8c2a65bf-5b85-4342-b4f4-87308d6a3943","testCaseStartedId":"890da039-c3e7-41d4-a506-d108d293853e"}},{"testStepStarted":{"timestamp":{"seconds":"1709185725","nanos":189000000},"testStepId":"c9cf2a76-5a51-4ccf-aa58-527584042da0","testCaseStartedId":"890da039-c3e7-41d4-a506-d108d293853e"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"nanos":127000000}},"timestamp":{"seconds":"1709185725","nanos":316000000},"testStepId":"c9cf2a76-5a51-4ccf-aa58-527584042da0","testCaseStartedId":"890da039-c3e7-41d4-a506-d108d293853e"}},{"testCaseFinished":{"timestamp":{"seconds":"1709185725","nanos":317000000},"testCaseStartedId":"890da039-c3e7-41d4-a506-d108d293853e"}},{"testCase":{"id":"e763c815-9adc-45bb-b2ad-916d26132701","pickleId":"d89ccd81-b93b-41f8-a1cd-e4b44cce4d2d","testSteps":[{"id":"38baad31-0927-4649-aab7-35e0f119e223","pickleStepId":"45efc4e7-ffe7-4e35-be9f-2f3553502885","stepDefinitionIds":["ffaa70c8-d825-46cf-9d75-4aead949b27b"],"stepMatchArgumentsLists":[{}]},{"id":"762951ee-9bda-413d-ae85-563e8c5a6b26","pickleStepId":"63e87078-e347-46a3-9a6e-3fef12fb9847","stepDefinitionIds":["14d56450-751d-4354-a6d8-9947535d36f2"],"stepMatchArgumentsLists":[{}]},{"id":"347d5f0c-99e0-4e01-b0dd-fe18225ba4c1","pickleStepId":"b7c7a6c7-3e29-4dff-b83c-b8b55641601c","stepDefinitionIds":["e06192c3-6a76-4c2f-8c61-22fa36817929"],"stepMatchArgumentsLists":[{}]},{"id":"aa5c1b5f-58a2-4c1f-b50d-5f1ecddda502","pickleStepId":"580aff52-d527-4eac-9d44-a4580f5cc9ff","stepDefinitionIds":["f38b2e83-54bf-4842-be2a-de03d6a98417"],"stepMatchArgumentsLists":[{}]}]}},{"testCaseStarted":{"timestamp":{"seconds":"1709185725","nanos":320000000},"testCaseId":"e763c815-9adc-45bb-b2ad-916d26132701","id":"27139ea8-8ba0-4614-b271-9dc31ac20803"}},{"testStepStarted":{"timestamp":{"seconds":"1709185725","nanos":321000000},"testStepId":"38baad31-0927-4649-aab7-35e0f119e223","testCaseStartedId":"27139ea8-8ba0-4614-b271-9dc31ac20803"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"nanos":28000000}},"timestamp":{"seconds":"1709185725","nanos":349000000},"testStepId":"38baad31-0927-4649-aab7-35e0f119e223","testCaseStartedId":"27139ea8-8ba0-4614-b271-9dc31ac20803"}},{"testStepStarted":{"timestamp":{"seconds":"1709185725","nanos":349000000},"testStepId":"762951ee-9bda-413d-ae85-563e8c5a6b26","testCaseStartedId":"27139ea8-8ba0-4614-b271-9dc31ac20803"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"seconds":"6","nanos":242000000}},"timestamp":{"seconds":"1709185731","nanos":591000000},"testStepId":"762951ee-9bda-413d-ae85-563e8c5a6b26","testCaseStartedId":"27139ea8-8ba0-4614-b271-9dc31ac20803"}},{"testStepStarted":{"timestamp":{"seconds":"1709185731","nanos":591000000},"testStepId":"347d5f0c-99e0-4e01-b0dd-fe18225ba4c1","testCaseStartedId":"27139ea8-8ba0-4614-b271-9dc31ac20803"}},{"testStepFinished":{"testStepResult":{"status":"FAILED","message":"org.openqa.selenium.NoSuchElementException: Unable to find element with locator By.xpath: //input[@id\u003d\u0027chkDate\u0027]\nFor documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element\nBuild info: version: \u00274.7.0\u0027, revision: \u00270a5b49d16f\u0027\nSystem info: os.name: \u0027Windows 10\u0027, os.arch: \u0027amd64\u0027, os.version: \u002710.0\u0027, java.version: \u00271.8.0_202\u0027\nDriver info: driver.version: RemoteWebDriver\r\n\tat org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)\r\n\tat org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:365)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:357)\r\n\tat SearchPage.InvoiceDisplayPage.checkAndSelectDeliveryDate(InvoiceDisplayPage.java:31)\r\n\tat SPAStepDefinition.InvoiceDisplayStepDefinition.selectDeliveryDate(InvoiceDisplayStepDefinition.java:24)\r\n\tat ?.select delivery date(file:///C:/Users/Rafi/Desktop/SPA_SFBL/SPAWebAutomation/src/test/resources/Features/04_invoiceDisplay.feature:7)\r\n","duration":{"nanos":28000000}},"timestamp":{"seconds":"1709185731","nanos":619000000},"testStepId":"347d5f0c-99e0-4e01-b0dd-fe18225ba4c1","testCaseStartedId":"27139ea8-8ba0-4614-b271-9dc31ac20803"}},{"testStepStarted":{"timestamp":{"seconds":"1709185731","nanos":630000000},"testStepId":"aa5c1b5f-58a2-4c1f-b50d-5f1ecddda502","testCaseStartedId":"27139ea8-8ba0-4614-b271-9dc31ac20803"}},{"testStepFinished":{"testStepResult":{"status":"SKIPPED","duration":{"nanos":3000000}},"timestamp":{"seconds":"1709185731","nanos":633000000},"testStepId":"aa5c1b5f-58a2-4c1f-b50d-5f1ecddda502","testCaseStartedId":"27139ea8-8ba0-4614-b271-9dc31ac20803"}},{"testCaseFinished":{"timestamp":{"seconds":"1709185731","nanos":6370000

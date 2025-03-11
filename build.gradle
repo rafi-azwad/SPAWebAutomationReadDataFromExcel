@@ -1,0 +1,88 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    implementation 'org.testng:testng:6.14.3'
+
+    implementation group: 'com.google.code.gson', name: 'gson', version: '2.8.9'
+    implementation 'org.json:json:20160810'
+    implementation 'io.rest-assured:rest-assured:4.5.0'
+    implementation group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
+    implementation 'org.seleniumhq.selenium:selenium-java:4.5.0'
+
+
+    //implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.141.59'
+    implementation 'io.github.bonigarcia:webdrivermanager:5.6.2'
+
+
+    implementation group: 'io.appium', name: 'java-client', version:'8.3.0'
+
+    implementation group: 'org.apache.poi', name: 'poi', version: '5.2.3'
+    implementation group: 'org.apache.poi', name: 'poi-ooxml', version: '5.2.3'
+
+    testImplementation 'io.cucumber:cucumber-java:6.10.0'
+    testImplementation 'io.cucumber:cucumber-testng:6.10.0'
+
+   //https://mvnrepository.com/artifact/com.github.stephenc.monte/monte-screen-recorder
+    implementation 'com.github.stephenc.monte:monte-screen-recorder:0.7.7.0'
+
+
+}
+
+task webRun(type: Test) {
+
+
+    useTestNG() {
+        useDefaultListeners = true
+        scanForTestClasses = false
+        testLogging.showStandardStreams = true
+        systemProperties project.properties.subMap(["Type"])
+        String testValue = System.getProperty("Type");
+        System.out.println(testValue)
+
+
+        if(testValue.equals("allTest")){
+            suites "src/test/resources/runXML/00_allTest.xml"
+        }
+        else if(testValue.equals("loginTest")){
+            suites "src/test/resources/runXML/resources/runXML/01_loginTest.xml"
+        }
+        else if(testValue.equals("orderRetailerTest")){
+            suites "src/test/resources/runXML/02_orderRetailerTest.xml"
+        }
+        else if(testValue.equals("invoicedRetailerTest")){
+            suites "src/test/resources/runXML/03_invoicedRetailerTest.xml"
+        }
+        else if(testValue.equals("invoiceDisplayTest")){
+            suites "src/test/resources/runXML/04_invoiceDisplayTest.xml"
+        }
+        else if(testValue.equals("InvoiceReturnFromRetailerTest")){
+            suites "src/test/resources/runXML/05_InvoiceReturnFromRetailerTest.xml"
+        }
+        else if(testValue.equals("requisitionToFactoryTest")){
+            suites "src/test/resources/runXML/06_requisitionToFactoryTest.xml"
+        }
+        else if(testValue.equals("replacementSummarySheetTest")){
+            suites "src/test/resources/runXML/07_replacementSummarySheetTest.xml"
+        }
+        else if(testValue.equals("damageStockTransferForReplacementTest")){
+            suites "src/test/resources/runXML/08_damageStockTransferForReplacementTest.xml"
+        }
+        else if(testValue.equals("shortProductsTest")){
+            suites "src/test/resources/runXML/09_shortProductsTest.xml"
+        }
+        else if(testValue.equals("retailerDisplayProgramParticipationTest")){
+            suites "src/test/10_retailerDisplayProgramParticipationTest.xml"
+        }
+
+    }
+}
